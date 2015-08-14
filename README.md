@@ -25,3 +25,5 @@ download the package
 npm install
 
 ```
+
+# MIT
