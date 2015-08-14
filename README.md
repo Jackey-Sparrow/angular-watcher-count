@@ -17,6 +17,7 @@ use the directive
 
 ```
 
+**note** dependent on jQuery, please inject the jQ file to index.html
 
 # use gulp
 
@@ -27,7 +28,6 @@ npm install
 
 ```
 
-**note** dependent on jQuery, please inject the jQ file to index.html
 
 # License
 MIT
