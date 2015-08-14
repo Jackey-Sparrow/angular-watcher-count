@@ -17,6 +17,7 @@ use the directive
 
 ```
 
+
 # use gulp
 
 download the package
@@ -26,4 +27,8 @@ npm install
 
 ```
 
-# MIT
+**note** dependent on jQuery, please inject the jQ file to index.html
+
+# License
+MIT
+
