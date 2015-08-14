@@ -1,0 +1,113 @@
+/**
+ * Created by Jackey Li on 2015/8/14.
+ */
+/*
+ * angular performance detect
+ * detect watcher / scope / isolate scope for your angular
+ * 
+ * (c) 2015 Jackey Li
+ * License MIT
+ */
+
+(function (angular) {
+    'use strict';
+
+    angular.module('performance.detect', []).directive('showWatcherScope',
+        ['$timeout', function ($timeout) {
+            return {
+                restrict: 'AE',
+                scope: {},
+                template: '<div>watcherCount:{{result.watcherCount}} | scopeCount:{{result.scopeCount}} | iSolateScopeCount:{{result.iScopeCount}}</div>',
+                link: function ($scope, element, attr) {
+                    $scope.result = {
+                        watcherCount: 0,
+                        scopeCount: 0,
+                        iScopeCount: 0
+                    };
+
+                    var scopeType = {
+                        scope: 'scope',
+                        isolateScope: 'iScope'
+                    };
+
+                    var scopeIds = {};
+
+                    function getCount() {
+                        var watcherCount = 0,
+                            scopeCount = 0,
+                            iScopeCount = 0,
+                            scopeIds = {};
+
+                        //$('.ng-scope').each(function () {
+                        //    var scope = $(this).scope();
+                        //
+                        //    if (!scopeIds[scope.$id]) {
+                        //        scopeIds[scope.$id] = true;
+                        //        scopeCount++;
+                        //
+                        //        var watchers = scope.$$watchers ? scope.$$watchers.length : 0;
+                        //        watcherCount += watchers;
+                        //    }
+                        //});
+                        //
+                        //$('.ng-isolate-scope').each(function () {
+                        //    var iScope = $(this).scope();
+                        //    if (iScope && iScope.$id && !scopeIds[iScope.$id]) {
+                        //        scopeIds[iScope.$id] = true;
+                        //        iScopeCount++;
+                        //        var watchers = iScope.$$watchers ? iScope.$$watchers.length : 0;
+                        //        watcherCount += watchers;
+                        //    }
+                        //});
+
+                        function loopDom(element) {
+                            if (!element.length) {
+                                return watcherCount;
+                            }
+
+                            var scope = element.data();
+                            var iSolateWatchers = filterScopeWatchers(scope.$isolateScope, scopeType.isolateScope);
+                            var scopeWatchers = filterScopeWatchers(scope.$scope, scopeType.scope);
+                            var watcher = scopeWatchers.concat(iSolateWatchers);
+
+                            watcherCount += watcher.length;
+
+                            angular.forEach(element.children(), function (child) {
+                                loopDom(angular.element(child));
+                            });
+
+                        }
+
+                        function filterScopeWatchers(scope, type) {
+                            if (!scope || scopeIds[scope.$id]) {
+                                return [];
+                            }
+
+                            scopeIds[scope.$id] = true;
+                            if (type === scopeType.isolateScope) {
+                                iScopeCount++;
+                            } else {
+                                scopeCount++;
+                            }
+                            return scope.$$watchers || [];
+                        }
+
+                        loopDom(angular.element('body'));
+
+                        return {
+                            watcherCount: watcherCount,
+                            scopeCount: scopeCount,
+                            iScopeCount: iScopeCount
+                        }
+
+                    }
+
+                    $timeout(function () {
+                        $scope.result = getCount();
+                    });
+
+                }
+            };
+        }]);
+
+})(angular);
