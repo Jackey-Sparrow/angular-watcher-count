@@ -1,7 +1,5 @@
 # angular-watcher-count
 
-[NPM](https://www.npmjs.com/package/performance.detect)
-
 [![Build Status](https://travis-ci.org/Jackey-Sparrow/angular-watcher-count.svg)](https://travis-ci.org/Jackey-Sparrow/angular-watcher-count)
 [![issues](https://img.shields.io/github/issues/Jackey-Sparrow/angular-watcher-count.svg)](https://github.com/Jackey-Sparrow/angular-watcher-count/issues)
 [![npm version](https://badge.fury.io/js/performance.detect.svg)](http://badge.fury.io/js/performance.detect)
