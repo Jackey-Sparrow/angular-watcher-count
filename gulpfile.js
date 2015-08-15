@@ -6,10 +6,15 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     rename = require('gulp-rename');
 
-gulp.task('build', function () {
+gulp.task('build-min', function () {
     return gulp.src('src/*.js')
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
+        .pipe(gulp.dest('build'));
+});
+
+gulp.task('build', function () {
+    return gulp.src('src/*.js')
         .pipe(gulp.dest('build'));
 });
 
@@ -18,4 +23,4 @@ gulp.task('clean', function () {
         .pipe(clean({force: true}));
 });
 
-gulp.task('default', ['clean', 'build']);
+gulp.task('default', ['clean', 'build','build-min']);

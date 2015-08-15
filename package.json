@@ -11,7 +11,7 @@
     "url": "git://github.com/Jackey-Sparrow/angular-watcher-count.git"
   },
   "scripts": {
-    "test": "grunt gruntTest"
+    "test": "gulp"
   },
   "keywords": [
     "watcher",
