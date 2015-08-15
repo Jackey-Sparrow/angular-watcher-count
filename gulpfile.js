@@ -2,7 +2,7 @@
  * Created by Jackey Li on 2015/8/14.
  */
 
-    
+
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     clean = require('gulp-clean'),

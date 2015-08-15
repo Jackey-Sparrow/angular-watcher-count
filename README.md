@@ -53,6 +53,22 @@ Node interpreter : C:\Program Files\nodejs\node.exe
 Karma package : C:\Program Files\nodejs\node_global\node_modules\karma
 ```
 
+# how to download
+
+- use npm
+
+```
+npm i performance.detect
+
+```
+
+- use bower
+
+
+```
+bower install angular-watcher-count
+```
+
 
 # License
 MIT

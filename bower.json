@@ -1,0 +1,21 @@
+{
+  "name": "angular-watcher-count",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Jackey-Sparrow/angular-watcher-count",
+  "authors": [
+    "Jackey <jackey.li@foxmail.com>"
+  ],
+  "description": "get the watchers / scope / isolateScope count for your angular app",
+  "keywords": [
+    "watcher",
+    "scope",
+    "isolatescope"
+  ],
+  "ignore": [
+    "node_modules",
+    "demo",
+    "src",
+    "test"
+  ],
+  "license": "MIT"
+}
