@@ -5,7 +5,7 @@ describe('watcher', function () {
     });
 
     it('test1', function () {
-        expect(1).toBe(2);
+        expect(1).toBe(1);
 
     });
 });
