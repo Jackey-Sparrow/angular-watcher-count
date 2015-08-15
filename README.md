@@ -1,6 +1,6 @@
 # angular-watcher-count
 
-[NPM](https://www.npmjs.com/package/performance.detect)
+[NPM LOGO](https://www.npmjs.com/package/performance.detect)
 
 get the watchers / scope / isolateScope count for your angular app
 
