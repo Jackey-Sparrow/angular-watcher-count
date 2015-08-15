@@ -6,6 +6,7 @@
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     clean = require('gulp-clean'),
+    rimraf = require('gulp-rimraf'),
     rename = require('gulp-rename'),
     karma = require('gulp-karma');
 
@@ -37,5 +38,13 @@ gulp.task('clean', function () {
         .pipe(clean({force: true}));
 });
 
+gulp.task('rimraf', function () {
+    return gulp.src(['build/*.js'], {read: false})
+        .pipe(rimraf({force: true}));
+});
+
+
+
 //gulp.task('default', ['clean', 'build','build-min','runTest']);
-gulp.task('default', ['clean', 'build','build-min']);
+//gulp.task('default', ['clean', 'build','build-min']);
+gulp.task('default', ['rimraf', 'build','build-min']);
