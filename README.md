@@ -31,6 +31,26 @@ npm install
 
 ```
 
+# use karma-jasmine
+
+```
+npm install -g karma
+```
+
+
+```
+npm install karma-jasmine
+
+```
+
+configuration in webstorm
+
+```
+configuration files: angular-watcher-count\test\karma.conf.js
+Node interpreter : C:\Program Files\nodejs\node.exe
+Karma package : C:\Program Files\nodejs\node_global\node_modules\karma
+```
+
 
 # License
 MIT
