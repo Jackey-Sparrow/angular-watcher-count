@@ -35,4 +35,5 @@ gulp.task('clean', function () {
         .pipe(clean({force: true}));
 });
 
-gulp.task('default', ['clean', 'build','build-min','runTest']);
+//gulp.task('default', ['clean', 'build','build-min','runTest']);
+gulp.task('default', ['clean', 'build','build-min']);
