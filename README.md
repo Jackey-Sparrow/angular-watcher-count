@@ -70,6 +70,8 @@ npm i performance.detect
 bower install angular-watcher-count
 ```
 
+# todo
+rewrite the test case
 
 # License
 MIT
